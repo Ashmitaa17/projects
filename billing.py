@@ -25,20 +25,6 @@ def signup():
     admin_credentials["password"] = new_password
     print("Signup successful! You can now log in with your new credentials.")
 
-def reset_password():
-    current_username = admin_credentials["username"]
-    current_password = admin_credentials["password"]
-
-    username = input("Enter current username: ")
-    password = input("Enter current password: ")
-
-    if username == current_username and password == current_password:
-        new_password = input("Enter new password: ")
-        admin_credentials["password"] = new_password
-        print("Password successfully updated!")
-    else:
-        print("Invalid current username or password.")
-
 def login():
     retries = 3
     while retries > 0:
@@ -172,8 +158,7 @@ def main():
         print("WELCOME:")
         print("1. Login")
         print("2. Sign Up")
-        print("3. Reset Password")
-        print("4. Exit")
+        print("3. Exit")
 
         choice = int(input("Enter your choice: "))
 
@@ -185,9 +170,6 @@ def main():
             signup()
 
         elif choice == 3:
-            reset_password()
-
-        elif choice == 4:
             print("Exiting...")
             return
 
