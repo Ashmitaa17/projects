@@ -1,12 +1,11 @@
 from datetime import datetime
 
-# In-memory storage for admin credentials
-admin_credentials = {
-    "username": "admin",  # Replace with your desired default username
-    "password": "password"  # Replace with your desired default password
+#python dictionaries
+admin_credentials = { 
+    "admin": "password"  
 }
 
-# In-memory menu
+
 menu = {
     "Idli": 10,
     "Dosa": 32,
@@ -15,14 +14,13 @@ menu = {
     "Dal": 12
 }
 
-# In-memory storage for bills
+
 bills = []
 
 def signup():
     new_username = input("Enter new username: ")
     new_password = input("Enter new password: ")
-    admin_credentials["username"] = new_username
-    admin_credentials["password"] = new_password
+    admin_credentials[new_username] = new_password
     print("Signup successful! You can now log in with your new credentials.")
 
 def login():
@@ -30,7 +28,7 @@ def login():
     while retries > 0:
         username = input("Enter Username: ")
         password = input("Enter Password: ")
-        if username == admin_credentials["username"] and password == admin_credentials["password"]:
+        if username in admin_credentials and password == admin_credentials[username]:
             print("Login successful!")
             return True
         else:
